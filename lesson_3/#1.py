@@ -16,6 +16,13 @@ def func_2(start = 2, end = 100):
             result.append(i)
     return f"в диапозоне[ {start}; {end} ]кратных числам от 2 до 9 :{len(result)} чисел"
 
+def func_2p5(start = 2, end = 100):
+    fin = 9
+    result = set([i for i in range(start,end)])
+    for d in range((fin+1)//2, fin+1):
+        result = result & set([i for i in range(0,end, d)])
+    return result
+
 
 def func_3():
     #кратны каждому из чисел в диапазоне от 2 до 9
