@@ -9,7 +9,6 @@ def swap_min_max(lst):
     return lst
 
 def bad_swap(lst):
-    '''Не понимаю почему так не работает'''
     lst[lst.index(min(lst))], lst[lst.index(max(lst))] = max(lst), min(lst)
     return lst
 
