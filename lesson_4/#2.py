@@ -32,7 +32,23 @@ def prime(i):
         # print(num, count)
     return num
 
+@time_eff
+def mix(idx):
+    #Мы проходим ОПРЕДЕЛЕННЫЙ диапазон и в нем ищем все простые числа с помощью решета  Эратосфена,
+    #формируем список простых чисел и возвращаем значение по индексу
+    #расширение списка непростых чисел узкое место алгоритма
+    # сложность n*ln(ln(n)) *где n диапазон поиска << ВЗЯТО С ВИКИ
+    end = 10_000
+    nums = [i for i in range(end)]
+    for num in nums[2:]:
+        for i in nums[num*2::num]:
+            nums[i] = 0
+    nums = list(set(nums))[2:]
+    nums.sort()
+    return nums[idx-1]
 
+
+@time_eff
 def eratosfen(idx):
     #Мы проходим ОПРЕДЕЛЕННЫЙ диапазон и в нем ищем все простые числа с помощью решета  Эратосфена,
     # достигнув нужного индекса возвращаем его
@@ -52,13 +68,8 @@ def eratosfen(idx):
     # print(len(primes))
 
 
-@time_eff
-def test(n):
-    return eratosfen(n)
-
-
-
 if __name__ == '__main__':
     n = 1_000
     print(prime(n))
-    print(test(n))
+    print(eratosfen(n))
+    print(mix(n))
