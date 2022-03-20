@@ -18,10 +18,10 @@ def avarage(data):
 def calc():
     data = input_ui()
     avrg = avarage(data)
-    print(f'Avarage year income is {avrg}, \ncompany with income lovaer than avarage:')
+    print(f'Avarage year income is {avrg}, \Company with income lowaer than avarage:')
     for key, val in data.items():
         if val > avrg:
-            break
+            print('Company with income higher than avarage:')
         print(key)
 
     
